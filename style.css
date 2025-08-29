@@ -1,0 +1,237 @@
+
+/* 🌐 Variáveis Globais */
+:root {
+  --bg-overlay: rgba(0, 0, 0, 0.6);
+  --card-bg: rgba(255, 255, 255, 0.96);
+  --text-primary: #2c2c2c;
+  --text-muted: #666;
+  --accent: #000;
+  --font-main: 'Segoe UI', sans-serif;
+  --radius: 16px;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  --max-width: 440px;
+}
+
+/* 🔧 Reset Básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 📄 Corpo */
+body {
+  font-family: var(--font-main);
+  background: url('img/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+/* 🔲 Estrutura Principal */
+.background-overlay {
+  background-color: var(--bg-overlay);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1.5rem;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 2.5rem 2rem;
+  max-width: var(--max-width);
+  width: 100%;
+  text-align: center;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+}
+
+/* 👤 Perfil */
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.nome {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.profissao {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.descricao {
+  font-size: 0.96rem;
+  color: #444;
+  margin-bottom: 2.2rem;
+  padding: 0 1rem;
+  line-height: 1.6;
+}
+
+/* 🔘 Botões */
+.botoes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.botoes a,
+.botao.voltar {
+  display: block;
+  padding: 1rem;
+  border: 2px solid var(--text-primary);
+  color: var(--text-primary);
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.botoes a:hover,
+.botao.voltar:hover {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+/* 🔗 Redes Sociais */
+.social-icons {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.social-icons a {
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: var(--accent);
+}
+
+/* 🖼️ Galeria */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.2rem;
+  margin-top: 2.5rem;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  height: 160px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.gallery img:hover {
+  transform: scale(1.03);
+}
+
+/* 🔍 Lightbox */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  transition: 0.3s ease;
+  object-fit: contain;
+}
+
+.lightbox.show {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+.close-btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* 📱 Responsivo */
+@media (max-width: 480px) {
+  .avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .nome {
+    font-size: 1.6rem;
+  }
+
+  .profissao {
+    font-size: 0.9rem;
+  }
+
+  .descricao {
+    font-size: 0.9rem;
+  }
+
+  .botoes a,
+  .botao.voltar {
+    font-size: 0.95rem;
+    padding: 0.9rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: 2.5rem 3rem;
+  }
+
+  .nome {
+    font-size: 2rem;
+  }
+
+  .botoes a,
+  .botao.voltar {
+    font-size: 1rem;
+  }
+
+  .social-icons a {
+    font-size: 1.4rem;
+  }
+}
